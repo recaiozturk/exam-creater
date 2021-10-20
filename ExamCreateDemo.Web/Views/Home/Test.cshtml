@@ -1,0 +1,28 @@
+﻿
+
+@*model ile olan sekli*@
+
+@*@model IEnumerable<ArticlesViewModel>
+
+@foreach (var article in Model)
+{
+    <h1>@article.HeaderName</h1>
+    <hr />
+
+    <p>@article.Article</p>
+}*@
+
+
+
+
+@foreach (var article in ViewBag.ArticleModels)
+{
+    <h1>@article.HeaderName</h1>
+    <hr />
+
+    <p>@article.Article</p>
+}
+
+
+
+

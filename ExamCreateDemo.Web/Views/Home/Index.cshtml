@@ -1,0 +1,21 @@
+﻿
+@using Microsoft.AspNetCore.Http
+
+
+<div class="text-center mt-5">
+    <h1>Welcome</h1>
+    <p class="lead">Exam Create Project</p>
+    <p>Bootstrap v5.1.1</p>
+    <p>Date @DateTime.Now.ToString("dd-MM-yyyy")</p>
+
+    @if (Context.Session.GetString("sessionUsername") != null)
+    {
+        <p>Welcome @Context.Session.GetString("sessionUsername")</p>
+
+    }
+
+</div>
+
+
+
+

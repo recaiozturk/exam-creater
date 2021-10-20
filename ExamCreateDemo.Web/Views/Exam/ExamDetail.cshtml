@@ -1,0 +1,333 @@
+﻿
+@model Exam
+@using Microsoft.AspNetCore.Http;
+
+@if (Context.Session.GetString("sessionUsername") != null)
+{
+    <div class="text-center mt-5">
+        <h3>@Model.ExamArticleHeader</h3>
+        <input type="hidden" id="examId" name="examId" value="@Model.ExamId" />
+        <input type="hidden" id="q1correctAnswer" name="q1correctAnswer" value="@Model.QuestionOneCorrectAnswer" />
+        <input type="hidden" id="q2correctAnswer" name="q2correctAnswer" value="@Model.QuestionTwoCorrectAnswer" />
+        <input type="hidden" id="q3correctAnswer" name="q3correctAnswer" value="@Model.QuestionThreeCorrectAnswer" />
+        <input type="hidden" id="q4correctAnswer" name="q4correctAnswer" value="@Model.QuestionFourCorrectAnswer" />
+    </div>
+
+    <div class="d-flex justify-content-center">
+        <form id="detailform">
+
+
+
+            <div class="mb-3">
+                <div class="form-floating">
+                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="width:800px;  height:500px">@Model.ExamArticleContent</textarea>
+                    @*<label for="floatingTextarea">Comments</label>*@
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-6">
+                    @*Soru1*@
+                    <div>
+                        <div class="mb-3">
+                            <div class="form-floating">
+                                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="height:90px"></textarea>
+                                <label for="floatingTextarea">1) @Model.QuestionOne</label>
+                            </div>
+                        </div>
+
+                        @*Cevaplar*@
+                        <div class="input-group mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="answerCheck1" value="A" id="">
+                                <label class="form-check-label" for=""></label>
+                            </div>
+
+                            <button id="q1A" type="button" class="btn btn-secondary" style="width: 250px; height: 40px; text-align: left;">
+                                A)@Model.QuestionOneAnswerA
+                            </button>
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="answerCheck1" value="B" id="">
+                                <label class="form-check-label" for=""></label>
+                            </div>
+                            <button id="q1B" type="button" class="btn btn-secondary" style="width: 250px; height: 40px; text-align: left;">
+                                B)@Model.QuestionOneAnswerB
+                            </button>
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="answerCheck1" value="C" id="">
+                                <label class="form-check-label" for=""></label>
+                            </div>
+                            <button id="q1C" type="button" class="btn btn-secondary" style="width: 250px; height: 40px; text-align: left;">
+                                C)@Model.QuestionOneAnswerC
+                            </button>
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="answerCheck1" value="D" id="">
+                                <label class="form-check-label" for=""></label>
+                            </div>
+                            <button id="q1D" type="button" class="btn btn-secondary" style="width: 250px; height: 40px; text-align: left;">
+                                D)@Model.QuestionOneAnswerD
+                            </button>
+                        </div>
+
+
+                        <hr />
+
+                    </div>
+                    @*Soru3*@
+                    <div>
+                        <div class="mb-3">
+                            <div class="form-floating">
+                                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="height:90px"></textarea>
+                                <label for="floatingTextarea">3) @Model.QuestionThree</label>
+                            </div>
+                        </div>
+
+                        @*Cevaplar*@
+                        <div class="input-group mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="answerCheck3" value="A" id="">
+                                <label class="form-check-label" for=""></label>
+                            </div>
+                            <button id="q3A" type="button" class="btn btn-secondary" style="width: 250px; height: 40px; text-align: left;">
+                                A)@Model.QuestionThreeAnswerA
+                            </button>
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="answerCheck3" value="B" id="">
+                                <label class="form-check-label" for=""></label>
+                            </div>
+                            <button id="q3B" type="button" class="btn btn-secondary" style="width: 250px; height: 40px; text-align: left;">
+                                B)@Model.QuestionThreeAnswerB
+                            </button>
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="answerCheck3" value="C" id="">
+                                <label class="form-check-label" for=""></label>
+                            </div>
+                            <button id="q3C" type="button" class="btn btn-secondary" style="width: 250px; height: 40px; text-align: left;">
+                                C)@Model.QuestionThreeAnswerC
+                            </button>
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="answerCheck3" value="D" id="">
+                                <label class="form-check-label" for=""></label>
+                            </div>
+                            <button id="q3D" type="button" class="btn btn-secondary" style="width: 250px; height: 40px; text-align: left;">
+                                D)@Model.QuestionThreeAnswerD
+                            </button>
+                        </div>
+
+
+                        <hr />
+
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    @*Soru2*@
+                    <div>
+                        <div class="mb-3">
+                            <div class="form-floating">
+                                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="height:90px"></textarea>
+                                <label for="floatingTextarea">2) @Model.QuestionTwo</label>
+                            </div>
+                        </div>
+
+                        @*Cevaplar*@
+                        <div class="input-group mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="answerCheck2" value="A" id="">
+                                <label class="form-check-label" for=""></label>
+                            </div>
+                            <button id="q2A" type="button" class="btn btn-secondary" style="width: 250px; height: 40px; text-align: left;">
+                                A)@Model.QuestionTwoAnswerA
+                            </button>
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="answerCheck2" value="B" id="">
+                                <label class="form-check-label" for=""></label>
+                            </div>
+                            <button id="q2B" type="button" class="btn btn-secondary" style="width: 250px; height: 40px; text-align: left;">
+                                B)@Model.QuestionTwoAnswerB
+                            </button>
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="answerCheck2" value="C" id="">
+                                <label class="form-check-label" for=""></label>
+                            </div>
+                            <button id="q2C" type="button" class="btn btn-secondary" style="width: 250px; height: 40px; text-align: left;">
+                                C)@Model.QuestionTwoAnswerC
+                            </button>
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="answerCheck2" value="D" id="">
+                                <label class="form-check-label" for=""></label>
+                            </div>
+                            <button id="q2D" type="button" class="btn btn-secondary" style="width: 250px; height: 40px; text-align: left;">
+                                D)@Model.QuestionTwoAnswerD
+                            </button>
+                        </div>
+
+
+                        <hr />
+
+                    </div>
+
+                    @*Soru4*@
+                    <div>
+                        <div class="mb-3">
+                            <div class="form-floating">
+                                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="height:90px"></textarea>
+                                <label for="floatingTextarea">4) @Model.QuestionFour</label>
+                            </div>
+                        </div>
+
+                        @*Cevaplar*@
+                        <div class="input-group mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="answerCheck4" value="A" id="">
+                                <label class="form-check-label" for=""></label>
+                            </div>
+                            <button id="q4A" type="button" class="btn btn-secondary" style="width: 250px; height: 40px; text-align: left;">
+                                A)@Model.QuestionFourAnswerA
+                            </button>
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="answerCheck4" value="B" id="">
+                                <label class="form-check-label" for=""></label>
+                            </div>
+                            <button id="q4B" type="button" class="btn btn-secondary" style="width: 250px; height: 40px; text-align: left;">
+                                B)@Model.QuestionFourAnswerB
+                            </button>
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="answerCheck4" value="C" id="">
+                                <label class="form-check-label" for=""></label>
+                            </div>
+                            <button id="q4C" type="button" class="btn btn-secondary" style="width: 250px; height: 40px; text-align: left;">
+                                C)@Model.QuestionFourAnswerC
+                            </button>
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="answerCheck4" value="D" id="">
+                                <label class="form-check-label" for=""></label>
+                            </div>
+                            <button id="q4D" type="button" class="btn btn-secondary" style="width: 250px; height: 40px; text-align: left;">
+                                D)@Model.QuestionFourAnswerD
+                            </button>
+                        </div>
+
+
+                        <hr />
+
+                    </div>
+                </div>
+            </div>
+
+
+            <button type="submit" class="btn btn-primary">Sınavı Tamamla</button>
+
+            <hr />
+
+        </form>
+
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+
+        //$("button").each(function () {
+        //    $(this).click(function () {
+        //        $(this).removeClass("btn btn-secondary").addClass("btn btn-info");
+        //    });
+        //});
+
+        //function divFunction() {
+        //    event.target.removeClass("btn btn-secondary").addClass("btn btn-info");
+        //}
+
+        $("#detailform").submit(function (event) {
+            event.preventDefault();
+
+
+            var examID = $("#examId").val();
+
+            //q1
+            var q1correctAnswer = $("#q1correctAnswer").val();
+            var q1answer = $("input[name='answerCheck1']:checked").val();
+
+            if (q1answer == q1correctAnswer) {
+                /*alert("Dogru");*/
+                $("#q1" + q1answer).removeClass("btn btn-secondary").addClass("btn btn-success");
+            }
+            else {
+                /*alert("Yanlıs");*/
+                $("#q1" + q1answer).removeClass("btn btn-secondary").addClass("btn btn-danger");
+                $("#q1" + q1correctAnswer).removeClass("btn btn-secondary").addClass("btn btn-success");
+            }
+
+            //q2
+            var q2correctAnswer = $("#q2correctAnswer").val();
+            var q2answer = $("input[name='answerCheck2']:checked").val();
+
+            if (q2answer == q2correctAnswer) {
+                $("#q2" + q2answer).removeClass("btn btn-secondary").addClass("btn btn-success");
+            }
+            else {
+                $("#q2" + q2answer).removeClass("btn btn-secondary").addClass("btn btn-danger");
+                $("#q2" + q2correctAnswer).removeClass("btn btn-secondary").addClass("btn btn-success");
+            }
+
+            //q3
+            var q3correctAnswer = $("#q3correctAnswer").val();
+            var q3answer = $("input[name='answerCheck3']:checked").val();
+
+            if (q3answer == q3correctAnswer) {
+                $("#q3" + q3answer).removeClass("btn btn-secondary").addClass("btn btn-success");
+            }
+            else {
+                $("#q3" + q3answer).removeClass("btn btn-secondary").addClass("btn btn-danger");
+                $("#q3" + q3correctAnswer).removeClass("btn btn-secondary").addClass("btn btn-success");
+            }
+
+            //q4
+            var q4correctAnswer = $("#q4correctAnswer").val();
+            var q4answer = $("input[name='answerCheck4']:checked").val();
+
+            if (q4answer == q4correctAnswer) {
+                $("#q4" + q4answer).removeClass("btn btn-secondary").addClass("btn btn-success");
+            }
+            else {
+                $("#q4" + q4answer).removeClass("btn btn-secondary").addClass("btn btn-danger");
+                $("#q4" + q4correctAnswer).removeClass("btn btn-secondary").addClass("btn btn-success");
+            }
+
+
+
+
+        });
+
+    </script>
+
+}
+
+
+

@@ -1,0 +1,259 @@
+﻿@model ExamCreateViewModel
+@using Microsoft.AspNetCore.Http;
+
+@if (Context.Session.GetString("sessionUsername") != null)
+{
+    <div class="text-center mt-5">
+        <h1>Create New Exam</h1>
+
+    </div>
+
+    <div class="text-danger text-center " asp-validation-summary="All"></div>
+
+    <div class="d-flex justify-content-center">
+        <form method="post" asp-controller="Exam" asp-action="CreateExam">
+
+            <hr />
+
+            <div class="mb-3">
+                <select asp-for="ExamArticleHeader" id="selectList" class="btn btn-secondary dropdown-toggle">
+                    @foreach (var item in Model.Articles)
+                    {
+                        <option asp-for="ExamArticleHeader" id="@item.ArticleId" value="@item.Header">@item.Header</option>
+                    }
+
+                </select>
+                <span asp-validation-for="ExamArticleHeader" class="text-danger"></span>
+
+            </div>
+
+            <div class="mb-3">
+                <div id="articleArea" class="form-floating">
+
+                    <textarea asp-for="ExamArticleContent" class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="  height:180px"></textarea>
+                    <span asp-validation-for="ExamArticleContent" class="text-danger"></span>
+
+                    @*<label for="floatingTextarea">Comments</label>*@
+                </div>
+            </div>
+
+            @*soru1*@
+            <div>
+                <div class="mb-3">
+                    <div class="form-floating">
+                        <textarea asp-for="QuestionOne" class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="height:90px"></textarea>
+                        <label asp-for="QuestionOne">Soru 1 </label>
+                        <span asp-validation-for="QuestionOne" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">A)</span>
+                    <input asp-for="QuestionOneAnswerA" type="text" class="form-control" placeholder="Cevap" aria-label="Username" aria-describedby="basic-addon1">
+                    <span asp-validation-for="QuestionOneAnswerA" class="text-danger"></span>
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">B)</span>
+                    <input asp-for="QuestionOneAnswerB" type="text" class="form-control" placeholder="Cevap" aria-label="Username" aria-describedby="basic-addon1">
+                    <span asp-validation-for="QuestionOneAnswerB" class="text-danger"></span>
+
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">C)</span>
+                    <input asp-for="QuestionOneAnswerC" type="text" class="form-control" placeholder="Cevap" aria-label="Username" aria-describedby="basic-addon1">
+                    <span asp-validation-for="QuestionOneAnswerC" class="text-danger"></span>
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">D)</span>
+                    <input asp-for="QuestionOneAnswerD" type="text" class="form-control" placeholder="Cevap" aria-label="Username" aria-describedby="basic-addon1">
+                    <span asp-validation-for="QuestionOneAnswerD" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <select asp-for="QuestionOneCorrectAnswer" class="btn btn-secondary dropdown-toggle">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                </select>
+            </div>
+            @*soru1*@
+
+            @*soru2*@
+            <div>
+                <div class="mb-3">
+                    <div class="form-floating">
+                        <textarea asp-for="QuestionTwo" class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="height:90px"></textarea>
+                        <label asp-for="QuestionTwo">Soru 2 </label>
+                        <span asp-validation-for="QuestionTwo" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">A)</span>
+                    <input asp-for="QuestionTwoAnswerA" type="text" class="form-control" placeholder="Cevap" aria-label="Username" aria-describedby="basic-addon1">
+                    <span asp-validation-for="QuestionTwoAnswerA" class="text-danger"></span>
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">B)</span>
+                    <input asp-for="QuestionTwoAnswerB" type="text" class="form-control" placeholder="Cevap" aria-label="Username" aria-describedby="basic-addon1">
+                    <span asp-validation-for="QuestionTwoAnswerB" class="text-danger"></span>
+
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">C)</span>
+                    <input asp-for="QuestionTwoAnswerC" type="text" class="form-control" placeholder="Cevap" aria-label="Username" aria-describedby="basic-addon1">
+                    <span asp-validation-for="QuestionTwoAnswerC" class="text-danger"></span>
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">D)</span>
+                    <input asp-for="QuestionTwoAnswerD" type="text" class="form-control" placeholder="Cevap" aria-label="Username" aria-describedby="basic-addon1">
+                    <span asp-validation-for="QuestionTwoAnswerD" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <select asp-for="QuestionTwoCorrectAnswer" class="btn btn-secondary dropdown-toggle">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                </select>
+            </div>
+            @*soru2*@
+
+            @*soru3*@
+            <div>
+                <div class="mb-3">
+                    <div class="form-floating">
+                        <textarea asp-for="QuestionThree" class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="height:90px"></textarea>
+                        <label asp-for="QuestionThree">Soru 3 </label>
+                        <span asp-validation-for="QuestionThree" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">A)</span>
+                    <input asp-for="QuestionThreeAnswerA" type="text" class="form-control" placeholder="Cevap" aria-label="Username" aria-describedby="basic-addon1">
+                    <span asp-validation-for="QuestionThreeAnswerA" class="text-danger"></span>
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">B)</span>
+                    <input asp-for="QuestionThreeAnswerB" type="text" class="form-control" placeholder="Cevap" aria-label="Username" aria-describedby="basic-addon1">
+                    <span asp-validation-for="QuestionThreeAnswerB" class="text-danger"></span>
+
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">C)</span>
+                    <input asp-for="QuestionThreeAnswerC" type="text" class="form-control" placeholder="Cevap" aria-label="Username" aria-describedby="basic-addon1">
+                    <span asp-validation-for="QuestionThreeAnswerC" class="text-danger"></span>
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">D)</span>
+                    <input asp-for="QuestionThreeAnswerD" type="text" class="form-control" placeholder="Cevap" aria-label="Username" aria-describedby="basic-addon1">
+                    <span asp-validation-for="QuestionThreeAnswerD" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <select asp-for="QuestionThreeCorrectAnswer" class="btn btn-secondary dropdown-toggle">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                </select>
+            </div>
+            @*soru3*@
+
+            @*soru4*@
+
+            <div>
+                <div class="mb-3">
+                    <div class="form-floating">
+                        <textarea asp-for="QuestionFour" class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="height:90px"></textarea>
+                        <label asp-for="QuestionFour">Soru 4 </label>
+                        <span asp-validation-for="QuestionFour" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">A)</span>
+                    <input asp-for="QuestionFourAnswerA" type="text" class="form-control" placeholder="Cevap" aria-label="Username" aria-describedby="basic-addon1">
+                    <span asp-validation-for="QuestionFourAnswerA" class="text-danger"></span>
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">B)</span>
+                    <input asp-for="QuestionFourAnswerB" type="text" class="form-control" placeholder="Cevap" aria-label="Username" aria-describedby="basic-addon1">
+                    <span asp-validation-for="QuestionFourAnswerB" class="text-danger"></span>
+
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">C)</span>
+                    <input asp-for="QuestionFourAnswerC" type="text" class="form-control" placeholder="Cevap" aria-label="Username" aria-describedby="basic-addon1">
+                    <span asp-validation-for="QuestionFourAnswerC" class="text-danger"></span>
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">D)</span>
+                    <input asp-for="QuestionFourAnswerD" type="text" class="form-control" placeholder="Cevap" aria-label="Username" aria-describedby="basic-addon1">
+                    <span asp-validation-for="QuestionFourAnswerD" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <select asp-for="QuestionFourCorrectAnswer" class="btn btn-secondary dropdown-toggle">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                </select>
+            </div>
+            @*soru4*@
+
+
+            <hr />
+
+
+            <button type="submit" class="btn btn-primary">Create Exam</button>
+
+            <hr />
+        </form>
+
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+
+
+        $('#selectList').change(function () {
+
+            /*event.preventDefault();*/
+
+            $.ajax({
+
+                url: "/exam/GetArticle",
+                data: {
+                    Id: event.target.value
+                    /*Id: event.target.value*/
+                },
+                type: "POST",
+                complete: function () {
+
+                },
+                success: function (result) {
+                    var html = [];
+                    html.push("<textarea class= 'form-control' placeholder = 'Leave a comment here id' = 'floatingTextarea' style = 'height:180px'>" + result + "</textarea>");
+                    $("#articleArea").empty().append(html);
+                }
+            });
+
+            /*alert(event.target.value + "secildi");*/
+
+        });
+
+
+    </script>
+
+}
