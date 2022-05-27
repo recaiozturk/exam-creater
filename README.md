@@ -1,5 +1,12 @@
-# ExamCreateDemo
+# ExamCreator
 
--Uygulama temelinde Wired.com sitesinden MostRecent yani son yazılar kısmından son 5 yazıyı sınav oluşturma kısmında gerçek zamanlı olarak cekmektedir.Lakin sitenin serverindan  kaynaklı olsa gerek uygulmam bu işlemi %100 verimli yapamamaktadır.Bundan dolayı serverin verimli çalıştığı bir zamanda Most Recent kısmından son eklenen 5 yazıyı cektim ve gerçek zamanlı olarak veri cekmeyi kapattım.Dilerseniz istediğiniz zaman uygulamanın ExamControllerindan ExamCreate metodu içindeki  //Load Articles() yorum satırını çalışabilir kod olarak değiştirerek Wired.com sitesinden gerçek zamanlı olarak veri çekebilirsiniz.
+The application allows you to draw the last 5 articles from the MostRecent section of Wired.com and create an exam on it. You can perform CRUD operations on the exams. In the application, the user login is done simply with Sesions.
 
-Uygulamanın güncel çalışır videosu : https://www.youtube.com/watch?v=On67HAAQXu0
+## Used technologies
+- Bootstrap 5.1.1
+- Java Script
+- .Net Core 5.0 - MVC
+- Visual Studio 2019
+
+## Uygulamanın güncel çalışır videosu : 
+- https://www.youtube.com/watch?v=On67HAAQXu0
