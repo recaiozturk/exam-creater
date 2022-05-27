@@ -8,5 +8,5 @@ The application allows you to draw the last 5 articles from the MostRecent secti
 - .Net Core 5.0 - MVC
 - Visual Studio 2019
 
-## Uygulamanın güncel çalışır videosu : 
+## Video of the application: 
 - https://www.youtube.com/watch?v=On67HAAQXu0
